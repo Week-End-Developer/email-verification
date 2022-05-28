@@ -1,0 +1,74 @@
+<div class="content" [attr.stlye.background-image]="'/assets/img/slider-1.jpg'">
+
+    <div class="top">
+        <p class="logo">LOGO</p>
+        <p class="verift-email ">VERIFY EMAIL</p>
+        <p class="text-1">We’ve sent a verification code to your email.</p>
+        <p class="address">
+            Address : <a href="">johndoe@example.com</a>
+        </p>
+    </div>
+
+    <div class="center">
+        <div class="rectangle" id="rectangle1">
+            <div class="number">
+                <div id="underline1" class="underline" (click)="input1.focus()">—</div>
+                <input (paste)="onPaste($event)" id="input1" #input1
+                    [ngClass]="{'error': isError, 'success' : isSuccess}" autofocus
+                    oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1);"
+                    (keyup)="input2.focus(); checkVerify()" (focus)="onInputFocus($event,1)" (blur)="onInputBlur(1)"
+                    type="number">
+            </div>
+        </div>
+        <div class="rectangle" id="rectangle2">
+            <div class="number">
+                <div id="underline2" class="underline" (click)="input2.focus()">—</div>
+                <input (paste)="onPaste($event)" id="input2" #input2
+                    [ngClass]="{'error': isError, 'success' : isSuccess}"
+                    oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1);"
+                    (keyup)="input3.focus(); checkVerify()" (focus)="onInputFocus($event,2)" (blur)="onInputBlur(2)"
+                    type="number">
+            </div>
+        </div>
+        <div class="rectangle" id="rectangle3">
+            <div class="number">
+                <div id="underline3" class="underline" (click)="input3.focus()">—</div>
+                <input (paste)="onPaste($event)" id="input3" #input3
+                    [ngClass]="{'error': isError, 'success' : isSuccess}"
+                    oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1);"
+                    (keyup)="input4.focus(); checkVerify()" (focus)="onInputFocus($event,3)" (blur)="onInputBlur(3)"
+                    type="number">
+            </div>
+        </div>
+        <div class="rectangle" id="rectangle4">
+            <div class="number">
+                <div id="underline4" class="underline" (click)="input4.focus()">—</div>
+                <input (paste)="onPaste($event)" id="input4" #input4
+                    [ngClass]="{'error': isError, 'success' : isSuccess}"
+                    oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1);"
+                    (keyup)="button.focus(); checkVerify()" (focus)="onInputFocus($event,4)" (blur)="onInputBlur(4)"
+                    type="number">
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="container p-0 w-100 h-100">
+            <div class="w-100" style="position: absolute; bottom: 0;">
+                <div class="row m-0">
+                    <div class="col-12 flex-center" style="height: 2rem;">
+                        <button #button class=" button-primary">
+                            <div class="text">Proceed</div>
+                            <div class="icon">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-12 flex-center" style="margin-top: 10px;margin-bottom: 17px;">
+                        Didn’t receive email ? <span class="non-button"> Resend</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
