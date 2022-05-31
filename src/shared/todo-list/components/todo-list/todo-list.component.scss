@@ -1,0 +1,93 @@
+:host {
+    display: block;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 2rem;
+}
+
+.remove-button {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+table {
+    width: 100% !important;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0;
+    overflow: auto;
+}
+
+th.mat-header-cell {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    /* identical to box height */
+    letter-spacing: -0.02em;
+    /* Neutral/Charcoal */
+    color: #485059;
+}
+
+tr {
+    border: 1px solid #E3E8ED !important;
+    border-left: unset !important;
+    border-right: unset !important;
+}
+
+th {
+    /* Form/Form > Badge > Extra Small 10px */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    /* identical to box height */
+    letter-spacing: -0.02em;
+    /* Neutral/Charcoal */
+    color: #485059;
+}
+
+td.mat-cell {
+    /* Form/Form > Badge > Extra Small 10px */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    /* identical to box height */
+    letter-spacing: -0.02em;
+    /* Neutral/Charcoal */
+    color: #485059;
+}
+
+th {
+    width: calc(100% / 3);
+}
+
+tr.mat-header-row {
+    border-top: unset !important;
+}
+
+.no-data {
+    position: absolute;
+    top: 56px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.empty-message {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #8692A6;
+}

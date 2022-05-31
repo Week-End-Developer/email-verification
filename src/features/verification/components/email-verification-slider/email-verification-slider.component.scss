@@ -54,3 +54,20 @@
     width: 3rem !important;
     transition: width 500ms linear, width 1000ms linear, background-color 500ms linear, background-color 1000ms linear;
 }
+
+.fade-in {
+    -webkit-transition: background-image 1s 0.3s ease, transform 4.5s 2.3s ease;
+    -moz-transition: background-image 1s 0.3s ease, transform 4.5s 2.3s ease;
+    -o-transition: background-image 1s 0.3s ease, transform 4.5s 2.3s ease;
+    transition: background-image 1s 0.3s ease, transform 4.5s 2.3s ease;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

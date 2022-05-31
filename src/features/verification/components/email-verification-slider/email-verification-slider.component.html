@@ -1,6 +1,6 @@
-<div class="content" [attr.stlye.background-image]="'/assets/img/slider-1.jpg'">
+<div class="content">
 
-    <div class="carousel" [style.backgroundImage]="'url(/assets/img/' + imageList[scaneIndex].src + ')'">
+    <div class="carousel fade-in" [style.backgroundImage]="'url(/assets/img/' + imageList[scaneIndex].src + ')'">
         <div class="img-filter"></div>
         <div class="paginator">
             <div class="circle" [ngClass]="{'active': imageList[scaneIndex].index == i}"

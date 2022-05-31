@@ -1,0 +1,35 @@
+<div class="container w-100 h-100" style="background-color: white;position: relative;">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="item">
+            <th mat-header-cell *matHeaderCellDef style="width: 45% !important;"> Item </th>
+            <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef style="width: 45% !important;"> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.date | date : 'longDate'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="operation">
+            <th mat-header-cell *matHeaderCellDef> <span style="cursor: pointer;" (click)="onFillTheTableClick()">Fill
+                    the table !</span> </th>
+            <td mat-cell *matCellDef="let element" style="text-align: right;">
+                <i class="fa-solid fa-trash-can remove-button"></i>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div class="no-data flex-center"
+        *ngIf="!dataSource || (dataSource && !dataSource.data) || (dataSource && dataSource.data && dataSource.data.length == 0)">
+        <div>
+            <p class="text-center" style="margin-bottom: 3.5rem;">
+                <i style="transform: scale(8.5);" class="fa-brands fa-snapchat empty-message"></i>
+            </p>
+            <p class="empty-message">You don’t seem to have any data here.</p>
+        </div>
+    </div>
+</div>

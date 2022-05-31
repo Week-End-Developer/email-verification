@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-email-verification-check-section',
@@ -7,17 +7,24 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class EmailVerificationCheckSectionComponent implements OnInit {
 
+    //
+    @Output() verifySuccess = new EventEmitter;
+    @Output() verifyError = new EventEmitter;
+
+    //
     public isError: boolean = false;
     public isSuccess: boolean = false;
-
     public correctCode = "6666";
 
+    //
     constructor() { }
 
+    //
     ngOnInit(): void {
 
     }
 
+    //
     onInputFocus(event: any, index: number) {
         const target = event.currentTarget;
         target.type = 'text';
@@ -55,6 +62,7 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         }
     }
 
+    //
     onInputBlur(index: number) {
         if (index == 1) {
             const input1 = document.getElementById("input1");
@@ -80,6 +88,7 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         }
     }
 
+    //
     checkVerify() {
         const input1 = document.getElementById("input1") as HTMLInputElement;
         const input2 = document.getElementById("input2") as HTMLInputElement;
@@ -102,6 +111,7 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         }
     }
 
+    //
     onPaste(event: ClipboardEvent) {
         let clipboardData = event.clipboardData;
         let pastedText = clipboardData!.getData('text');
@@ -113,6 +123,14 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         input2.value = pastedText[1];
         input3.value = pastedText[2];
         input4.value = pastedText[3];
+    }
+
+    //
+    onProceedClick() {
+        if (this.isSuccess)
+            this.verifySuccess.emit(true);
+        else
+            this.verifyError.emit(true);
     }
 
 }
