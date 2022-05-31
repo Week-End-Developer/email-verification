@@ -35,9 +35,6 @@ export class TodoListComponent implements OnInit {
         ];
 
         this.displayedColumns = ['item', 'date', 'operation'];
-
-
-
     }
 
     public async onFillTheTableClick() {

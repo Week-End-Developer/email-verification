@@ -1,4 +1,6 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { CountdownComponent, CountdownConfig, CountdownEvent } from 'ngx-countdown';
+import { firstValueFrom, interval, Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-email-verification-check-section',
@@ -6,6 +8,8 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '
     styleUrls: ['./email-verification-check-section.component.scss']
 })
 export class EmailVerificationCheckSectionComponent implements OnInit {
+
+    @ViewChild('cd', { static: false }) private countdown?: CountdownComponent;
 
     //
     @Output() verifySuccess = new EventEmitter;
@@ -15,6 +19,12 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
     public isError: boolean = false;
     public isSuccess: boolean = false;
     public correctCode = "6666";
+    isShowTimerHidden = true;
+
+    config: CountdownConfig = {
+        leftTime: 120,
+        format: 'mm:ss'
+    }
 
     //
     constructor() { }
@@ -131,6 +141,24 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
             this.verifySuccess.emit(true);
         else
             this.verifyError.emit(true);
+    }
+
+    //
+    public async onResendClick() {
+        if (!this.isShowTimerHidden)
+            return;
+
+        this.isShowTimerHidden = false;
+        this.countdown!.restart();
+        this.countdown!.begin();
+        // const count = interval(1000).pipe().subscribe(x => { this.timer > 0 ? this.timer -= 1 : count.unsubscribe(); });
+    }
+
+    //
+    public async handleEvent(event: CountdownEvent) {
+        if (event.action == "done") {
+            this.isShowTimerHidden = true;
+        }
     }
 
 }
