@@ -117,7 +117,6 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         } else {
             this.isError = true;
             this.isSuccess = false;
-            console.log("error");
         }
     }
 
@@ -159,6 +158,19 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         if (event.action == "done") {
             this.isShowTimerHidden = true;
         }
+    }
+
+    //
+    public async checkOnlyNumber(value: KeyboardEvent, inputName: string) {
+        // console.log(value);
+        // console.log((/^([0-9]{1})$/.test(value)));
+
+        if (/^([0-9]{1})$/.test(value.key) == false) {
+            const input = document.getElementById(inputName) as HTMLInputElement;
+            input.value = ""
+            input.focus();
+        }
+        return;
     }
 
 }

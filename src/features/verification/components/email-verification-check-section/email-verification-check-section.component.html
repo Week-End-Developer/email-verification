@@ -9,15 +9,15 @@
         </p>
     </div>
 
-    <div class="verify-area">
+    <div class="center">
         <div class="rectangle" id="rectangle1">
             <div class="number">
                 <div id="underline1" class="underline" (click)="input1.focus()">—</div>
-                <input (paste)="onPaste($event)" id="input1" #input1
+                <input pattern="[0-9]{1}" (paste)="onPaste($event)" id="input1" #input1
                     [ngClass]="{'error': isError, 'success' : isSuccess}" autofocus
-                    oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1);"
-                    (keyup)="input2.focus(); checkVerify()" (focus)="onInputFocus($event,1)" (blur)="onInputBlur(1)"
-                    type="number">
+                    oninput="javascript: if (this.value.length > 1) this.value = this.value.slice(0, 1)"
+                    (keyup)="input2.focus(); checkVerify(); checkOnlyNumber($event,'input1')"
+                    (focus)="onInputFocus($event,1)" (blur)="onInputBlur(1)" type="number">
             </div>
         </div>
         <div class="rectangle" id="rectangle2">
