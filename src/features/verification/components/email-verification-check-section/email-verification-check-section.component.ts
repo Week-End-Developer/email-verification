@@ -128,6 +128,11 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         const input2 = document.getElementById("input2") as HTMLInputElement;
         const input3 = document.getElementById("input3") as HTMLInputElement;
         const input4 = document.getElementById("input4") as HTMLInputElement;
+        input1.value = "";
+        input2.value = "";
+        input3.value = "";
+        input4.value = "";
+
         input1.value = pastedText[0];
         input2.value = pastedText[1];
         input3.value = pastedText[2];
@@ -162,13 +167,14 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
 
     //
     public async checkOnlyNumber(value: KeyboardEvent, inputName: string) {
-        // console.log(value);
-        // console.log((/^([0-9]{1})$/.test(value)));
+        if (value.key != 'v') {
+            if (/^([0-9]{1})$/.test(value.key) == false || value.key == 'e') {
+                console.log("DELETE", value.key);
 
-        if (/^([0-9]{1})$/.test(value.key) == false || value.key == 'e') {
-            const input = document.getElementById(inputName) as HTMLInputElement;
-            input.value = ""
-            input.focus();
+                const input = document.getElementById(inputName) as HTMLInputElement;
+                input.value = ""
+                input.focus();
+            }
         }
         return;
     }
