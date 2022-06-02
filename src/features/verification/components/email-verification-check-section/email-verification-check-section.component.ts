@@ -165,7 +165,7 @@ export class EmailVerificationCheckSectionComponent implements OnInit {
         // console.log(value);
         // console.log((/^([0-9]{1})$/.test(value)));
 
-        if (/^([0-9]{1})$/.test(value.key) == false) {
+        if (/^([0-9]{1})$/.test(value.key) == false || value.key == 'e') {
             const input = document.getElementById(inputName) as HTMLInputElement;
             input.value = ""
             input.focus();
