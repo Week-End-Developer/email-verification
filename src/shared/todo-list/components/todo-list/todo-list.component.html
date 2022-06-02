@@ -16,7 +16,7 @@
             <th mat-header-cell *matHeaderCellDef> <span style="cursor: pointer;" (click)="onFillTheTableClick()">Fill
                     the table !</span> </th>
             <td mat-cell *matCellDef="let element" style="text-align: right;">
-                <i class="fa-solid fa-trash-can remove-button"></i>
+                <i class="fa-solid fa-trash-can remove-button" (click)="onRemoveClick(element)"></i>
             </td>
         </ng-container>
 
