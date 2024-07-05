@@ -13,8 +13,8 @@ export const routes: Routes = [
     canActivate: [SecureInnerPagesGuard],
   },
   {
-    
-    path: 'error',
+
+    path: "error",
     loadChildren: () =>
       import('../shared/error/error.module').then((m) => m.ErrorModule)
   },
