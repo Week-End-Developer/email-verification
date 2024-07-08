@@ -4,7 +4,7 @@
         [style.backgroundImage]="'url(/email-verification/assets/img/' + imageList[scaneIndex].src + ')'">
         <div class="img-filter"></div>
         <div class="paginator">
-            <div class="circle" [ngClass]="{'active': imageList[scaneIndex].index == i}"
+            <div class="circle" [ngClass]="{'active': imageList[scaneIndex].index === i}"
                 *ngFor="let item of imageList;let i = index;" (click)="onClickPaginatorCircle(i)"></div>
         </div>
     </div>

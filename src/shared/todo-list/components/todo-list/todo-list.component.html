@@ -24,7 +24,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <div class="no-data flex-center"
-        *ngIf="!dataSource || (dataSource && !dataSource.data) || (dataSource && dataSource.data && dataSource.data.length == 0)">
+        *ngIf="!dataSource || (dataSource && !dataSource.data) || (dataSource && dataSource.data && dataSource.data.length === 0)">
         <div>
             <p class="text-center" style="margin-bottom: 3.5rem;">
                 <i style="transform: scale(8.5);" class="fa-brands fa-snapchat empty-message"></i>

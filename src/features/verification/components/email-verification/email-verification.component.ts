@@ -15,8 +15,6 @@ export class EmailVerificationComponent implements OnInit {
 
     //
     public async ngOnInit() {
-        //
-
     }
 
     //
